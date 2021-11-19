@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link rel=" stylesheet" type="text/css" href="styles.css">
+	<script src="https://kit.fontawesome.com/5558fed61e.js" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+	<title>Portfolio Website - Abhishek Ramasubramanian</title>
+</head>
+
+<body>
+	<nav id="macTop">
+		<i class="fab fa-apple" style="margin-left: 5px;"></i>
+		<span id="currWin"></span>
+		<span id="dateTime"></span>
+		<script>
+			function calcDateTime() {
+				const today = new Date();
+				const date = today.toDateString().slice(0, -5);
+				let hours = today.getHours();
+				let minutes = today.getMinutes();
+				let meridien = hours >= 12 ? "PM" : "AM";
+				hours %= 12;
+				hours = hours ? hours : 12;
+				minutes = minutes < 10 ? '0' + minutes : minutes;
+				const full = date + " " + hours + ":" + minutes + " " + meridien;
+				document.getElementById("dateTime").innerHTML = full;
+			}
+			calcDateTime();
+
+			setInterval(() => {
+				calcDateTime();
+			}, 1000);
+		</script>
+	</nav>
+	<main>
+		<div id="homeWindow" class="window">
+			<div id="homeToolbar" class="windowToolbar">
+				<div class="dots-wrapper">
+					<div class="dot-1 browser-dot"></div>
+					<div class="dot-2 browser-dot"></div>
+					<div class="dot-3 browser-dot"></div>
+				</div>
+				<div class="windowTitle">Home</div>
+			</div>
+			<div id="homeContent" class="windowContent">
+				<img id="myImg" src="./images/my-image.jpg" alt="Abhishek Ramasubramanian">
+				<h1 style="font-size: 1.2em;">Hi there! I'm Abhishek Ramasubramanian</h1>
+				<h2 style="font-size: 1em;">Aspiring Full Stack Developer!</h2>
+				<p>
+					I'm a Computer Science student from Vellore Institute of Technology, Vellore. The amount of progress made in
+					the field of computer science fascinates me and motivates me to explore new things. I'm open to learning new
+					stuff and going beyond them.
+				</p>
+				<p>
+					I have some experience in using different Web Technologies and also work with Databases in SQL as well as
+					NoSQL. The best of my projects are listed down below and they are open-source. I would welcome suggestions to
+					improve them. I have even collaborated on some of them. Please do check it out.
+				</p>
+				<p>
+					I'm an apt leader and a good communicator where needed. I focus on my goal and don't deviate from it unless
+					necessary. I give priority to the completion of the assigned work and not leave it till the end. This is my
+					guarantee. I'm fluent in English and Hindi while Tamil is my mother tongue. Generally I don't post much things
+					on social media but I'm present there to be updated with the current affairs.
+				</p>
+			</div>
+			<div class="resizer resizer-r"></div>
+			<div class="resizer resizer-b"></div>
+		</div>
+
+		<div id="projectsWindow" class="window">
+			<div id="#projectsToolbar" class="windowToolbar">
+				<div class="dots-wrapper">
+					<div class="dot-1 browser-dot"></div>
+					<div class="dot-2 browser-dot"></div>
+					<div class="dot-3 browser-dot"></div>
+				</div>
+				<div class="windowTitle">Projects</div>
+			</div>
+			<div id="projectsContent" class="windowContent">
+				<div class="projectCard">
+					<img class="projImg" src="./images/todoAppProj.png" alt="Todo App">
+					<div class="projContent">
+						<h3>Task App</h3>
+						<div class="projCardAct">
+							<button class="srcCode">Source Code</button>
+						</div>
+						<p>
+							A task app made for storing simple task lists.
+							This is made purely using React. It's a template for making frontend for task apps.
+							The app features task lists which can contain sub tasks. Each sub task can have an
+							associated content and a timestamp.
+						</p>
+					</div>
+				</div>
+				<div class="projectCard">
+					<img class="projImg" src="./images//pharmacyProjImg.jpg" alt="Pharmacy System">
+					<div class="projContent">
+						<h3>Pharmacy System</h3>
+						<div class="projCardAct">
+							<button class="srcCode">Source Code</button>
+						</div>
+						<p>
+							This app helps to manage a single pharmacy store.
+							The app is built with backend in Node.js + Express.js, database used is MySQL and frontend in HTML, CSS
+							and JS with
+							Bootstrap library. This is a simple to use app which can generate bills, manage and maintain storage and
+							keeps records
+							of employees with proper authentication.
+						</p>
+					</div>
+				</div>
+				<div class="projectCard">
+					<img class="projImg" src="./images/osVisualizerProj.png" alt="CPU Scheduling Visualizer">
+					<div class="projContent">
+						<h3>CPU Scheduling Visualizer</h3>
+						<div class="projCardAct">
+							<button class="srcCode">Source Code</button>
+						</div>
+						<p>
+							This project demonstrates several CPU scheduling algorithms in a graphical way.
+							The project is built using Python. The purpose of the app is to help visualize the CPU scheduling
+							algorithms
+							and make it easy to understand. The app was made in collaboration with my classmates.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="resizer resizer-r"></div>
+			<div class="resizer resizer-b"></div>
+		</div>
+
+		<div id="skillsWindow" class="window">
+			<div id="#skillsToolbar" class="windowToolbar">
+				<div class="dots-wrapper">
+					<div class="dot-1 browser-dot"></div>
+					<div class="dot-2 browser-dot"></div>
+					<div class="dot-3 browser-dot"></div>
+				</div>
+				<div class="windowTitle">Skills</div>
+			</div>
+			<div id="skillsContent" class="windowContent">
+				<div style="margin: auto 40px;">
+					<div class="skillCard">
+						<i class="fab fa-node-js fa-2x" style="color: darkgreen;"></i>
+						<h3>Express.js</h3>
+						<p>
+							Express.js is popular backend framework based on Node.js. I feel it's much easier to build backend of the
+							applications using Express than with Node. I chose it because it's faster to build
+							using Express and also widely used. Quite a few projects showcase my ability and usage of Express which
+							are available in GitHub.
+						</p>
+					</div>
+					<div class="skillCard">
+						<i class="fab fa-react fa-2x" style="color: lightblue;"></i>
+						<h3>React</h3>
+						<p>
+							React is a popular frontend library for web apps. I have been learning React for quite long
+							and developed some experience with it. I'm also quite familiar with the associated packages like
+							MaterialUI, Redux, etc.
+						</p>
+					</div>
+					<div class="skillCard">
+						<i class="fas fa-database fa-2x" style="color: cornflowerblue;"></i>
+						<h3>SQL</h3>
+						<p>
+							SQL stands for Structured Query Language. It is designed for managing data in a
+							RDBMS. Having done a medium sized project which uses MySQL, I have
+							gained some experience with it. Hence, I'm comfortable writing the database queries and can make a
+							full-fledged application.
+						</p>
+					</div>
+				</div>
+				<canvas id="myChart" width="400" height="400"></canvas>
+				<script>
+					const ctx = document.getElementById('myChart').getContext('2d');
+					const myChart = new Chart(ctx, {
+						type: 'bar',
+						data: {
+							labels: ['React', 'SQL', 'Express.js', 'C++', 'Python', 'MongoDB'],
+							datasets: [
+								{
+									label: 'Relative Proficiency',
+									data: [80, 60, 70, 50, 40, 20],
+									backgroundColor: [
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(255, 159, 64, 0.2)',
+									],
+									borderColor: [
+										'rgba(255, 99, 132, 1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)',
+									],
+									borderWidth: 1,
+								},
+							],
+						},
+						options: {
+							indexAxis: 'x',
+							// Elements options apply to all of the options unless overridden in a dataset
+							// In this case, we are setting the border of each horizontal bar to be 2px wide
+							layout: {
+								padding: 10,
+							},
+							elements: {
+								bar: {
+									borderWidth: 2,
+								},
+							},
+							responsive: true,
+							aspectRatio: 2,
+							maintainAspectRatio: false,
+							plugins: {
+								legend: {
+									position: 'bottom',
+									labels: {
+										color: '#e5b9a2',
+									},
+								},
+								title: {
+									display: true,
+									text: 'Skill Proficiency Chart',
+									// color: '#11649c',
+									color: '#e5b9a2',
+									padding: {
+										top: 10,
+										bottom: 20,
+									},
+									font: {
+										size: 16,
+										family: 'Montserrat',
+									},
+								},
+							},
+							scales: {
+								x: {
+									ticks: {
+										font: {
+											family: 'Montserrat',
+										},
+										color: '#bbe1fa',
+									},
+								},
+								y: {
+									ticks: {
+										callback: function (value) {
+											return `${value}%`;
+										},
+										font: {
+											family: 'Montserrat',
+										},
+									},
+								},
+							},
+						}
+					});
+				</script>
+			</div>
+			<div class="resizer resizer-r"></div>
+			<div class="resizer resizer-b"></div>
+		</div>
+
+		<div id="contactWindow" class="window">
+			<div id="#contactToolbar" class="windowToolbar">
+				<div class="dots-wrapper">
+					<div class="dot-1 browser-dot"></div>
+					<div class="dot-2 browser-dot"></div>
+					<div class="dot-3 browser-dot"></div>
+				</div>
+				<div class="windowTitle">Contact Me</div>
+			</div>
+			<div id="contactContent" class="windowContent">
+				<h3 style="text-align: center;">Get In Touch</h3>
+
+				<form id="contact-form">
+
+					<label>Name
+						<input class="input-field" type="text" name="name">
+					</label>
+					<label>Subject
+						<input class="input-field" type="text" name="subject">
+					</label>
+					<label>Email
+						<input class="input-field" type="email" name="email">
+					</label>
+					<label>Message
+						<textarea class="input-field" name="message"></textarea>
+					</label>
+					<input id="submit-btn" type="submit" value="Send">
+				</form>
+				<ul id="socialBtns">
+					<li class="social">
+						<i class="fab fa-github fa-2x"></i>
+					</li>
+					<li class="social">
+						<i class="fab fa-linkedin fa-2x"></i>
+					</li>
+					<li class="social">
+						<i class="fab fa-twitter fa-2x"></i>
+					</li>
+					<li class="social">
+						<i class="far fa-envelope fa-2x"></i>
+					</li>
+				</ul>
+			</div>
+			<div class="resizer resizer-r"></div>
+			<div class="resizer resizer-b"></div>
+		</div>
+	</main>
+	<footer>
+		<ul>
+			<li>
+				<button id="homeBtn" style="background-color: hsl(165deg 100% 50% / 30%);" title="home">
+					<i class="fas fa-home" style="color: rgb(0 191 255);"></i>
+				</button>
+			</li>
+			<li>
+				<button id="projectsBtn" style="background-color: hsl(300deg 100% 50% / 30%);" title="project">
+					<i class="fas fa-code" style="color: hsl(150deg 100% 56%);"></i>
+				</button>
+			</li>
+			<li>
+				<button id="skillsBtn" style="background-color: hsl(210deg 100% 56% / 30%);" title="skills">
+					<i class="fas fa-tools" style="color: hsl(60deg 100% 50%);"></i>
+				</button>
+			</li>
+			<li>
+				<button id="contactsBtn" style="background-color: hsl(16deg 100% 66% / 30%);" title="contacts">
+					<i class="fas fa-address-book" style="color: hsl(60deg 100% 50%);"></i>
+				</button>
+			</li>
+			<script>
+				document.getElementById("homeBtn").addEventListener("mouseover",
+					(el, evt) => {
+						let hoverText = document.getElementById("hoverText");
+						hoverText.innerText = "Home";
+						hoverText.style.visibility = "visible";
+
+						hoverText.style.top = document.getElementById("homeBtn").getBoundingClientRect().top - 35 + "px";
+						hoverText.style.left = document.getElementById("homeBtn").getBoundingClientRect().left + "px";
+					});
+				document.getElementById("homeBtn").addEventListener("mouseout",
+					(el, evt) => {
+						let hoverText = document.getElementById("hoverText");
+						hoverText.innerText = "";
+						hoverText.style.visibility = "hidden";
+					});
+				document.getElementById("skillsBtn").addEventListener("mouseover",
+					(el, evt) => {
+						let hoverText = document.getElementById("hoverText");
+						hoverText.innerText = "Skills";
+						hoverText.style.visibility = "visible";
+
+						hoverText.style.top = document.getElementById("skillsBtn").getBoundingClientRect().top - 35 + "px";
+						hoverText.style.left = document.getElementById("skillsBtn").getBoundingClientRect().left + "px";
+					});
+				document.getElementById("skillsBtn").addEventListener("mouseout",
+					(el, evt) => {
+						let hoverText = document.getElementById("hoverText");
+						hoverText.innerText = "";
+						hoverText.style.visibility = "hidden";
+					});
+				document.getElementById("projectsBtn").addEventListener("mouseover",
+					(el, evt) => {
+						let hoverText = document.getElementById("hoverText");
+						hoverText.innerText = "Projects";
+						hoverText.style.visibility = "visible";
+
+						hoverText.style.top = document.getElementById("projectsBtn").getBoundingClientRect().top - 35 + "px";
+						hoverText.style.left = document.getElementById("projectsBtn").getBoundingClientRect().left + "px";
+					});
+				document.getElementById("projectsBtn").addEventListener("mouseout",
+					(el, evt) => {
+						let hoverText = document.getElementById("hoverText");
+						hoverText.innerText = "";
+						hoverText.style.visibility = "hidden";
+					});
+				document.getElementById("contactsBtn").addEventListener("mouseover",
+					(el, evt) => {
+						let hoverText = document.getElementById("hoverText");
+						hoverText.innerText = "Contact Me";
+						hoverText.style.visibility = "visible";
+
+						hoverText.style.top = document.getElementById("contactsBtn").getBoundingClientRect().top - 35 + "px";
+						hoverText.style.left = document.getElementById("contactsBtn").getBoundingClientRect().left + "px";
+					});
+				document.getElementById("contactsBtn").addEventListener("mouseout",
+					(el, evt) => {
+						let hoverText = document.getElementById("hoverText");
+						hoverText.innerText = "";
+						hoverText.style.visibility = "hidden";
+					});
+			</script>
+		</ul>
+	</footer>
+	<span id="hoverText"></span>
+	<script>
+		let openWindows = ["Abhishek"]
+		$("#currWin").text(openWindows[openWindows.length - 1]);
+		const homeWindow = document.getElementById('homeWindow');
+		const projectsWindow = document.getElementById('projectsWindow');
+		const skillsWindow = document.getElementById('skillsWindow');
+		const contactWindow = document.getElementById('contactWindow');
+
+		const pos = [
+			{ window: homeWindow, z: 4, name: "Home" },
+			{ window: projectsWindow, z: 3, name: "Projects" },
+			{ window: skillsWindow, z: 2, name: "Skills" },
+			{ window: contactWindow, z: 1, name: "Contact Me" }
+		];
+
+		function bringOnTop(e, idx) {
+			for (let i = 0; i < 4; i++) {
+				if (pos[i].z === 4) {
+					pos[i].z = pos[idx].z;
+					pos[idx].z = 4;
+					pos[idx].window.style.zIndex = 4;
+					pos[i].window.style.zIndex = pos[i].z;
+					return;
+				}
+			}
+		}
+
+		for (let i = 0; i < 4; i++) {
+			document.getElementsByClassName("window")[i].addEventListener("click",
+				(e) => {
+					bringOnTop(e, i);
+					if (openWindows.includes(pos[i].name)) {
+						const index = openWindows.indexOf(pos[i].name);
+						if (index > -1) {
+							openWindows.splice(index, 1);
+						}
+						openWindows.push(pos[i].name);
+						$("#currWin").text(openWindows[openWindows.length - 1]);
+					}
+				});
+		}
+
+		$("#homeBtn").click((e) => {
+			$("#homeWindow").toggle("slow");
+			$("#homeWindow").css({
+				"top": "calc(5vh)",
+				"left": "0",
+				"z-index": "4",
+			});
+			if (openWindows.includes("Home")) {
+				const index = openWindows.indexOf("Home");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Home");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 0);
+		})
+		$("#homeWindow .dot-1").click((e) => {
+			$("#homeWindow").toggle("slow");
+			$("#homeWindow").css({
+				"top": "calc(5vh)",
+				"left": "0",
+				"z-index": "4",
+			});
+			if (openWindows.includes("Home")) {
+				const index = openWindows.indexOf("Home");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Home");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 0);
+		})
+		$("#homeWindow .dot-2").click((e) => {
+			$("#homeWindow").toggle("slow");
+			$("#homeWindow").css({
+				"top": "calc(5vh)",
+				"left": "0",
+				"z-index": "4",
+			});
+			if (openWindows.includes("Home")) {
+				const index = openWindows.indexOf("Home");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Home");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 0);
+		})
+
+		$("#projectsBtn").click((e) => {
+			$("#projectsWindow").toggle("slow");
+			$(this).width()
+			$("#projectsWindow").css({
+				"top": "calc(5vh)",
+				"left": "calc(100% - " + $("#projectsWindow").width() + ")",
+				"z-index": "3",
+			});
+			if (openWindows.includes("Projects")) {
+				const index = openWindows.indexOf("Projects");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Projects");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 1);
+		})
+		$("#projectsWindow .dot-1").click((e) => {
+			$("#projectsWindow").toggle("slow");
+			$("#projectsWindow").css({
+				"top": "calc(5vh)",
+				"left": "calc(100% - " + $("#projectsWindow").width() + ")",
+				"z-index": "3",
+			});
+			if (openWindows.includes("Projects")) {
+				const index = openWindows.indexOf("Projects");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Projects");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 1);
+		})
+		$("#projectsWindow .dot-2").click((e) => {
+			$("#projectsWindow").toggle("slow");
+			$("#projectsWindow").css({
+				"top": "calc(5vh)",
+				"left": "calc(100% - " + $("#projectsWindow").width() + "px)",
+				"z-index": "3",
+			});
+			if (openWindows.includes("Projects")) {
+				const index = openWindows.indexOf("Projects");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Projects");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 1);
+		})
+
+		$("#skillsBtn").click((e) => {
+			$("#skillsWindow").toggle("slow");
+			$("#skillsWindow").css({
+				"bottom": "75px",
+				"left": "0",
+				"z-index": "2",
+			});
+			if (openWindows.includes("Skills")) {
+				const index = openWindows.indexOf("Skills");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Skills");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 2);
+		})
+		$("#skillsWindow .dot-1").click((e) => {
+			$("#skillsWindow").toggle("slow");
+			$("#skillsWindow").css({
+				"bottom": "75px",
+				"left": "0",
+				"z-index": "2",
+			});
+			if (openWindows.includes("Skills")) {
+				const index = openWindows.indexOf("Skills");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Skills");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 2);
+		})
+		$("#skillsWindow .dot-2").click((e) => {
+			$("#skillsWindow").toggle("slow");
+			$("#skillsWindow").css({
+				"bottom": "75px",
+				"left": "0",
+				"z-index": "2",
+			});
+			if (openWindows.includes("Skills")) {
+				const index = openWindows.indexOf("Skills");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Skills");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 2);
+		})
+
+		$("#contactsBtn").click((e) => {
+			$("#contactWindow").toggle("slow");
+			$("#contactWindow").css({
+				"bottom": "75px",
+				"right": "0",
+				"z-index": "1",
+			});
+			if (openWindows.includes("Contact Me")) {
+				const index = openWindows.indexOf("Contact Me");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Contact Me");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 3);
+		})
+		$("#contactWindow .dot-1").click((e) => {
+			$("#contactWindow").toggle("slow");
+			$("#contactWindow").css({
+				"bottom": "75px",
+				"right": "0",
+				"z-index": "1",
+			});
+			if (openWindows.includes("Contact Me")) {
+				const index = openWindows.indexOf("Contact Me");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Contact Me");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 3);
+		})
+		$("#contactWindow .dot-2").click((e) => {
+			$("#contactWindow").toggle("slow");
+			$("#contactWindow").css({
+				"bottom": "75px",
+				"right": "0",
+				"z-index": "1",
+			});
+			if (openWindows.includes("Contact Me")) {
+				const index = openWindows.indexOf("Contact Me");
+				if (index > -1) {
+					openWindows.splice(index, 1);
+				}
+			} else {
+				openWindows.push("Contact Me");
+			}
+			$("#currWin").text(openWindows[openWindows.length - 1]);
+			bringOnTop(e, 3);
+		})
+	</script>
+
+	<script src="moveWindow.js"></script>
+</body>
+
+</html>
